@@ -5,22 +5,25 @@ using UnityEngine;
 public class VoiceBox : MonoBehaviour {
 
 	private bool humming;
+	AudioSource voiceSource;
+
 	// Use this for initialization
 	void Awake () {
-		
+		voiceSource = GetComponent<AudioSource>();
 	}
 
 	public void Hum (bool hum) {
-		this.humming = hum;
+		if (humming && !hum) {
+			voiceSource.Stop();
+		}
+		if (!humming && hum) {
+			voiceSource.Play();
+		}
+		humming = hum;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (humming) {
-			Debug.Log("humming");
-		} else {
-			Debug.Log("silence");
-		}
 
 	}
 }
