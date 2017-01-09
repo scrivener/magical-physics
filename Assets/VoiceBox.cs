@@ -26,4 +26,8 @@ public class VoiceBox : MonoBehaviour {
 	void FixedUpdate () {
 
 	}
+
+	public bool IsHumming() {
+		return humming;
+	}
 }

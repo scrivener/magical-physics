@@ -5,16 +5,26 @@ using UnityEngine;
 public class YellowThing : MonoBehaviour {
 
 	public float yellowRepelFactor = 500.0f;
+	public const float hearingDistance = 4.0f;
 	private Rigidbody2D rigidbody2D;
+	private GameObject player;
 
 	// Use this for initialization
 	void Start () {
 		rigidbody2D = GetComponent<Rigidbody2D>();	
+		player = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		repelNearbyYellowThings();
+		VoiceBox vb = player.GetComponent<VoiceBox>();
+		if (vb.IsHumming()) {
+			float distanceToPlayer = (transform.position - player.transform.position).magnitude;
+			if (distanceToPlayer < hearingDistance) {
+				repelNearbyYellowThings();
+			}
+		}
+
 	}
 
 	void repelNearbyYellowThings() {
