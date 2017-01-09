@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class NextLevel : MonoBehaviour {
@@ -9,7 +10,7 @@ public class NextLevel : MonoBehaviour {
 		
 	}
 	void OnTriggerEnter2D(Collider2D other) {
-		Application.LoadLevel ("TestLevels/PlatformingTest");
+		SceneManager.LoadScene ("TestLevels/PlatformingTest");
 	}
 
 	// Update is called once per frame

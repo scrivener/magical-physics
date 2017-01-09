@@ -6,7 +6,7 @@ public class YellowThing : MonoBehaviour {
 
 	public float yellowRepelFactor = 500.0f;
 	public const float hearingDistance = 4.0f;
-	private Rigidbody2D rigidbody2D;
+	new private Rigidbody2D rigidbody2D;
 	private GameObject player;
 
 	// Use this for initialization
